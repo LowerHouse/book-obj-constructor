@@ -1,6 +1,11 @@
 const myLibrary = []
 const libary = document.querySelector('.libary')
 const addBook = document.querySelector('.addBook')
+const popup = document.querySelector('.popup')
+
+addBook.addEventListener('click', event =>{
+    popup.className = 'popup'
+})
 
 function Book(title, author, pages, read){
     this.title = title

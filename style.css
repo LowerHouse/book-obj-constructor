@@ -58,3 +58,33 @@
     border-radius: 1em;
     background-color: var(--libary-bg-color);
 }
+
+.popup{
+    position: fixed;
+    padding: 15px;
+    border-radius: 1em;
+    background-color: #edede9;
+    z-index: 2;
+    top: calc(50vh - 165px);
+    left: calc(50vw - 182px);
+}
+
+.popup form{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 300px;
+    grid-template-rows: repeat(4, 24px);
+    justify-items: center;
+    align-items: center;
+}
+
+.popup form input{
+    border: none;
+    padding: 5px;
+    border-radius: 1em;
+    background-color: var(--libary-bg-color);
+}
+
+.hide{
+    z-index: -1;
+}
