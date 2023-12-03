@@ -1,0 +1,51 @@
+:root{
+    --nav-bg-color: #f5ebe0;
+    --libary-bg-color: #d5bdaf;
+}
+
+*{
+    font-size: 20px;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    background-color: var(--libary-bg-color);
+}
+
+.nav{
+    display: flex;
+    justify-content: end;
+    padding: 15px;
+    background-color: var(--nav-bg-color);
+}
+
+.nav button{
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    background-color: var(--libary-bg-color);
+    border-radius: 1em;
+}
+
+.libary{
+    padding: 15px;
+    display: grid;
+    gap: 15px;
+    grid-template-rows: repeat(auto-fit, minmax(100px, 200px));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.card{
+    border-radius: 1em;
+    background-color: var(--nav-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
