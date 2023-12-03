@@ -27,15 +27,25 @@ function rerenderLibary(){
         `<p>${myLibrary[i].title}</p>
         <p>${myLibrary[i].author}</p>
         <p>${myLibrary[i].pages}</p>
-        <p>${myLibrary[i].read}</p>
         `
+        let toggleBtn= document.createElement('button')
+        toggleBtn.class = 'toggle'
+        toggleBtn.innerHTML = myLibrary[i].read  ? 'read':'not read'
+
         let removeBtn = document.createElement('button')
         removeBtn.class = 'removeBook'
         removeBtn.innerHTML = 'Remove'
 
-        removeBtn.addEventListener('click', e =>{
+        toggleBtn.addEventListener('click', event =>{
+            myLibrary[i].read = !myLibrary[i].read
+            toggleBtn.innerHTML = myLibrary[i].read  ? 'read':'not read'
+        })
+
+        removeBtn.addEventListener('click', event =>{
+            myLibrary.splice(i, 1)
             removeBtn.parentElement.remove()
         })
+        card.appendChild(toggleBtn)
         card.appendChild(removeBtn)
         libary.appendChild(card)
 }}
@@ -51,9 +61,8 @@ bookForm.addEventListener('submit', event =>{
         elements.get('title'),
         elements.get('author'),
         elements.get('pages'),
-        elements.get('read') ? 'read':'not read'
+        elements.get('read')
         )
-    console.log(myLibrary);
     rerenderLibary()
     popup.className = 'popup hide'
 })
