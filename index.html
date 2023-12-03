@@ -9,12 +9,12 @@
 <body>
 
     <div class="popup hide">
-        <form>
-            <label for="title">Title: </label><input id="title" type="text">
-            <label for="author">Author: </label><input id="author" type="text">
-            <label for="pages">Pages: </label><input id="pages" type="number">
-            <label for="read">Read: </label><input id="read" type="checkbox">
-            <input type="submit">
+        <form class="bookForm">
+            <label for="title">Title: </label><input name="title" id="title" type="text" required>
+            <label for="author">Author: </label><input name="author" id="author" type="text" required>
+            <label for="pages">Pages: </label><input name="pages" id="pages" type="number" required>
+            <label for="read">Read: </label><input name="read" id="read" type="checkbox">
+            <button class="formSubmit" type="submit">Add book</button>
         </form>
     </div>
     <div class="container">

@@ -78,11 +78,15 @@
     align-items: center;
 }
 
-.popup form input{
+.popup form input, .formSubmit{
     border: none;
     padding: 5px;
     border-radius: 1em;
     background-color: var(--libary-bg-color);
+}
+
+.formSubmit{
+    cursor: pointer;
 }
 
 .hide{
