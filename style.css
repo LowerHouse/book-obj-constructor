@@ -38,14 +38,23 @@
     display: grid;
     gap: 15px;
     grid-template-rows: repeat(auto-fit, minmax(100px, 200px));
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .card{
     border-radius: 1em;
     background-color: var(--nav-bg-color);
     display: flex;
+    gap: 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.card button{
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 1em;
+    background-color: var(--libary-bg-color);
 }

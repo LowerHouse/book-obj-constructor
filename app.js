@@ -1,5 +1,6 @@
 const myLibrary = []
 const libary = document.querySelector('.libary')
+const addBook = document.querySelector('.addBook')
 
 function Book(title, author, pages, read){
     this.title = title
@@ -14,7 +15,7 @@ function addBookToLibrary(title, author, pages ,read){
     myLibrary.push(new Book(title, author, pages ,read))
 }
 
-addBookToLibrary('The hobbit', 'Tolkien', '798', 'not read yet')
+addBookToLibrary('The Hobbit', 'Tolkien', '798', 'not read yet')
 addBookToLibrary('The Bobbit', 'Bolkien', '698', 'read')
 addBookToLibrary('The Dobbit', 'Dolkien', '598', 'not read yet')
 
@@ -28,5 +29,16 @@ for(i in myLibrary){
     <p>${myLibrary[i].pages}</p>
     <p>${myLibrary[i].read}</p>
     `
+    let removeBtn = document.createElement('button')
+    removeBtn.class = 'removeBook'
+    removeBtn.innerHTML = 'Remove'
+
+    removeBtn.addEventListener('click', e =>{
+        removeBtn.parentElement.remove()
+    })
+    card.appendChild(removeBtn)
     libary.appendChild(card)
 }
+
+const removeBook = document.querySelectorAll('.removeBook')
+
