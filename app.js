@@ -14,8 +14,8 @@ function Book(title, author, pages, read){
     }
 }
 
-function addBookToLibrary(title, author, pages ,read){
-    myLibrary.push(new Book(title, author, pages ,read))
+function addBookToLibrary(title, author, pages, read){
+    myLibrary.push(new Book(title, author, pages, read))
 }
 
 function rerenderLibary(){
@@ -37,13 +37,19 @@ function rerenderLibary(){
         removeBtn.innerHTML = 'Remove'
 
         toggleBtn.addEventListener('click', event =>{
-            myLibrary[i].read = !myLibrary[i].read
-            toggleBtn.innerHTML = myLibrary[i].read  ? 'read':'not read'
+            const title = toggleBtn.parentNode.children[0].textContent
+            const author = toggleBtn.parentNode.children[1].textContent
+            const index = myLibrary.findIndex(book => book.title === title & book.author === author)
+            myLibrary[index].read = !myLibrary[index].read
+            toggleBtn.innerHTML = myLibrary[index].read  ? 'read':'not read'
         })
 
         removeBtn.addEventListener('click', event =>{
-            myLibrary.splice(i, 1)
-            removeBtn.parentElement.remove()
+            const title = removeBtn.parentNode.children[0].textContent
+            const author = removeBtn.parentNode.children[1].textContent
+            const index = myLibrary.findIndex(book => book.title === title & book.author === author)
+            myLibrary.splice(index, 1)
+            rerenderLibary()
         })
         card.appendChild(toggleBtn)
         card.appendChild(removeBtn)
@@ -57,6 +63,13 @@ addBook.addEventListener('click', event =>{
 bookForm.addEventListener('submit', event =>{
     event.preventDefault()
     const elements = new FormData(event.currentTarget)
+    
+    if(myLibrary.findIndex(book => 
+        book.title === elements.get('title') & book.author === elements.get('author')) !== -1){
+            alert('Book already exists')
+            return
+        }
+
     addBookToLibrary(
         elements.get('title'),
         elements.get('author'),
