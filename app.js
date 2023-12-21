@@ -4,14 +4,15 @@ const addBook = document.querySelector('.addBook')
 const popup = document.querySelector('.popup')
 const bookForm = document.querySelector('.bookForm')
 
-function Book(title, author, pages, read){
+class Book{
+    constructor(title, author, pages, read){
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
-    }
+    }}
 }
 
 function addBookToLibrary(title, author, pages, read){
